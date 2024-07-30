@@ -1,3 +1,3 @@
-import '../main.dart';
+import '../../main.dart';
 
 typedef UI = ReactiveStatelessWidget;

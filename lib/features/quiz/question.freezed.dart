@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'states.dart';
+part of 'question.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -28,7 +28,9 @@ mixin _$Question {
   String get c => throw _privateConstructorUsedError;
   String get d => throw _privateConstructorUsedError;
   String get answer => throw _privateConstructorUsedError;
-  String get explaination => throw _privateConstructorUsedError;
+  String get explanation => throw _privateConstructorUsedError;
+  String get userAnswer => throw _privateConstructorUsedError;
+  bool get isSubmitted => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +52,9 @@ abstract class $QuestionCopyWith<$Res> {
       String c,
       String d,
       String answer,
-      String explaination});
+      String explanation,
+      String userAnswer,
+      bool isSubmitted});
 
   $CategoryCopyWith<$Res> get category;
 }
@@ -76,7 +80,9 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
     Object? c = null,
     Object? d = null,
     Object? answer = null,
-    Object? explaination = null,
+    Object? explanation = null,
+    Object? userAnswer = null,
+    Object? isSubmitted = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -111,10 +117,18 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
               as String,
-      explaination: null == explaination
-          ? _value.explaination
-          : explaination // ignore: cast_nullable_to_non_nullable
+      explanation: null == explanation
+          ? _value.explanation
+          : explanation // ignore: cast_nullable_to_non_nullable
               as String,
+      userAnswer: null == userAnswer
+          ? _value.userAnswer
+          : userAnswer // ignore: cast_nullable_to_non_nullable
+              as String,
+      isSubmitted: null == isSubmitted
+          ? _value.isSubmitted
+          : isSubmitted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -144,7 +158,9 @@ abstract class _$$QuestionImplCopyWith<$Res>
       String c,
       String d,
       String answer,
-      String explaination});
+      String explanation,
+      String userAnswer,
+      bool isSubmitted});
 
   @override
   $CategoryCopyWith<$Res> get category;
@@ -169,7 +185,9 @@ class __$$QuestionImplCopyWithImpl<$Res>
     Object? c = null,
     Object? d = null,
     Object? answer = null,
-    Object? explaination = null,
+    Object? explanation = null,
+    Object? userAnswer = null,
+    Object? isSubmitted = null,
   }) {
     return _then(_$QuestionImpl(
       id: null == id
@@ -204,10 +222,18 @@ class __$$QuestionImplCopyWithImpl<$Res>
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
               as String,
-      explaination: null == explaination
-          ? _value.explaination
-          : explaination // ignore: cast_nullable_to_non_nullable
+      explanation: null == explanation
+          ? _value.explanation
+          : explanation // ignore: cast_nullable_to_non_nullable
               as String,
+      userAnswer: null == userAnswer
+          ? _value.userAnswer
+          : userAnswer // ignore: cast_nullable_to_non_nullable
+              as String,
+      isSubmitted: null == isSubmitted
+          ? _value.isSubmitted
+          : isSubmitted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -224,7 +250,9 @@ class _$QuestionImpl extends _Question {
       this.c = '',
       this.d = '',
       this.answer = '',
-      this.explaination = ''})
+      this.explanation = '',
+      this.userAnswer = '',
+      this.isSubmitted = false})
       : super._();
 
   factory _$QuestionImpl.fromJson(Map<String, dynamic> json) =>
@@ -256,11 +284,17 @@ class _$QuestionImpl extends _Question {
   final String answer;
   @override
   @JsonKey()
-  final String explaination;
+  final String explanation;
+  @override
+  @JsonKey()
+  final String userAnswer;
+  @override
+  @JsonKey()
+  final bool isSubmitted;
 
   @override
   String toString() {
-    return 'Question(id: $id, category: $category, statement: $statement, a: $a, b: $b, c: $c, d: $d, answer: $answer, explaination: $explaination)';
+    return 'Question(id: $id, category: $category, statement: $statement, a: $a, b: $b, c: $c, d: $d, answer: $answer, explanation: $explanation, userAnswer: $userAnswer, isSubmitted: $isSubmitted)';
   }
 
   @override
@@ -278,14 +312,18 @@ class _$QuestionImpl extends _Question {
             (identical(other.c, c) || other.c == c) &&
             (identical(other.d, d) || other.d == d) &&
             (identical(other.answer, answer) || other.answer == answer) &&
-            (identical(other.explaination, explaination) ||
-                other.explaination == explaination));
+            (identical(other.explanation, explanation) ||
+                other.explanation == explanation) &&
+            (identical(other.userAnswer, userAnswer) ||
+                other.userAnswer == userAnswer) &&
+            (identical(other.isSubmitted, isSubmitted) ||
+                other.isSubmitted == isSubmitted));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, category, statement, a, b, c, d, answer, explaination);
+  int get hashCode => Object.hash(runtimeType, id, category, statement, a, b, c,
+      d, answer, explanation, userAnswer, isSubmitted);
 
   @JsonKey(ignore: true)
   @override
@@ -311,7 +349,9 @@ abstract class _Question extends Question {
       final String c,
       final String d,
       final String answer,
-      final String explaination}) = _$QuestionImpl;
+      final String explanation,
+      final String userAnswer,
+      final bool isSubmitted}) = _$QuestionImpl;
   const _Question._() : super._();
 
   factory _Question.fromJson(Map<String, dynamic> json) =
@@ -334,156 +374,14 @@ abstract class _Question extends Question {
   @override
   String get answer;
   @override
-  String get explaination;
+  String get explanation;
+  @override
+  String get userAnswer;
+  @override
+  bool get isSubmitted;
   @override
   @JsonKey(ignore: true)
   _$$QuestionImplCopyWith<_$QuestionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Questions _$QuestionsFromJson(Map<String, dynamic> json) {
-  return _Questions.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Questions {
-  Map<int, Question> get questions => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $QuestionsCopyWith<Questions> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $QuestionsCopyWith<$Res> {
-  factory $QuestionsCopyWith(Questions value, $Res Function(Questions) then) =
-      _$QuestionsCopyWithImpl<$Res, Questions>;
-  @useResult
-  $Res call({Map<int, Question> questions});
-}
-
-/// @nodoc
-class _$QuestionsCopyWithImpl<$Res, $Val extends Questions>
-    implements $QuestionsCopyWith<$Res> {
-  _$QuestionsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? questions = null,
-  }) {
-    return _then(_value.copyWith(
-      questions: null == questions
-          ? _value.questions
-          : questions // ignore: cast_nullable_to_non_nullable
-              as Map<int, Question>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$QuestionsImplCopyWith<$Res>
-    implements $QuestionsCopyWith<$Res> {
-  factory _$$QuestionsImplCopyWith(
-          _$QuestionsImpl value, $Res Function(_$QuestionsImpl) then) =
-      __$$QuestionsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Map<int, Question> questions});
-}
-
-/// @nodoc
-class __$$QuestionsImplCopyWithImpl<$Res>
-    extends _$QuestionsCopyWithImpl<$Res, _$QuestionsImpl>
-    implements _$$QuestionsImplCopyWith<$Res> {
-  __$$QuestionsImplCopyWithImpl(
-      _$QuestionsImpl _value, $Res Function(_$QuestionsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? questions = null,
-  }) {
-    return _then(_$QuestionsImpl(
-      questions: null == questions
-          ? _value._questions
-          : questions // ignore: cast_nullable_to_non_nullable
-              as Map<int, Question>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$QuestionsImpl implements _Questions {
-  const _$QuestionsImpl(
-      {final Map<int, Question> questions = const <int, Question>{}})
-      : _questions = questions;
-
-  factory _$QuestionsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$QuestionsImplFromJson(json);
-
-  final Map<int, Question> _questions;
-  @override
-  @JsonKey()
-  Map<int, Question> get questions {
-    if (_questions is EqualUnmodifiableMapView) return _questions;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_questions);
-  }
-
-  @override
-  String toString() {
-    return 'Questions(questions: $questions)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$QuestionsImpl &&
-            const DeepCollectionEquality()
-                .equals(other._questions, _questions));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_questions));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$QuestionsImplCopyWith<_$QuestionsImpl> get copyWith =>
-      __$$QuestionsImplCopyWithImpl<_$QuestionsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$QuestionsImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Questions implements Questions {
-  const factory _Questions({final Map<int, Question> questions}) =
-      _$QuestionsImpl;
-
-  factory _Questions.fromJson(Map<String, dynamic> json) =
-      _$QuestionsImpl.fromJson;
-
-  @override
-  Map<int, Question> get questions;
-  @override
-  @JsonKey(ignore: true)
-  _$$QuestionsImplCopyWith<_$QuestionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -494,7 +392,6 @@ Category _$CategoryFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Category {
   String get name => throw _privateConstructorUsedError;
-  int get index => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -507,7 +404,7 @@ abstract class $CategoryCopyWith<$Res> {
   factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
       _$CategoryCopyWithImpl<$Res, Category>;
   @useResult
-  $Res call({String name, int index});
+  $Res call({String name});
 }
 
 /// @nodoc
@@ -524,17 +421,12 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
   @override
   $Res call({
     Object? name = null,
-    Object? index = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
     ) as $Val);
   }
 }
@@ -547,7 +439,7 @@ abstract class _$$CategoryImplCopyWith<$Res>
       __$$CategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, int index});
+  $Res call({String name});
 }
 
 /// @nodoc
@@ -562,17 +454,12 @@ class __$$CategoryImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? index = null,
   }) {
     return _then(_$CategoryImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -580,7 +467,7 @@ class __$$CategoryImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CategoryImpl implements _Category {
-  const _$CategoryImpl({this.name = '', this.index = 0});
+  const _$CategoryImpl({this.name = ''});
 
   factory _$CategoryImpl.fromJson(Map<String, dynamic> json) =>
       _$$CategoryImplFromJson(json);
@@ -588,13 +475,10 @@ class _$CategoryImpl implements _Category {
   @override
   @JsonKey()
   final String name;
-  @override
-  @JsonKey()
-  final int index;
 
   @override
   String toString() {
-    return 'Category(name: $name, index: $index)';
+    return 'Category(name: $name)';
   }
 
   @override
@@ -602,13 +486,12 @@ class _$CategoryImpl implements _Category {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CategoryImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.index, index) || other.index == index));
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, index);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
@@ -625,8 +508,7 @@ class _$CategoryImpl implements _Category {
 }
 
 abstract class _Category implements Category {
-  const factory _Category({final String name, final int index}) =
-      _$CategoryImpl;
+  const factory _Category({final String name}) = _$CategoryImpl;
 
   factory _Category.fromJson(Map<String, dynamic> json) =
       _$CategoryImpl.fromJson;
@@ -634,40 +516,39 @@ abstract class _Category implements Category {
   @override
   String get name;
   @override
-  int get index;
-  @override
   @JsonKey(ignore: true)
   _$$CategoryImplCopyWith<_$CategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Categories _$CategoriesFromJson(Map<String, dynamic> json) {
-  return _Categories.fromJson(json);
+QuestionsForQuiz _$QuestionsForQuizFromJson(Map<String, dynamic> json) {
+  return _QuestionsForQuiz.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Categories {
-  Map<int, Category> get categories => throw _privateConstructorUsedError;
+mixin _$QuestionsForQuiz {
+  int get currentIndex => throw _privateConstructorUsedError;
+  Iterable<Question> get questions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CategoriesCopyWith<Categories> get copyWith =>
+  $QuestionsForQuizCopyWith<QuestionsForQuiz> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CategoriesCopyWith<$Res> {
-  factory $CategoriesCopyWith(
-          Categories value, $Res Function(Categories) then) =
-      _$CategoriesCopyWithImpl<$Res, Categories>;
+abstract class $QuestionsForQuizCopyWith<$Res> {
+  factory $QuestionsForQuizCopyWith(
+          QuestionsForQuiz value, $Res Function(QuestionsForQuiz) then) =
+      _$QuestionsForQuizCopyWithImpl<$Res, QuestionsForQuiz>;
   @useResult
-  $Res call({Map<int, Category> categories});
+  $Res call({int currentIndex, Iterable<Question> questions});
 }
 
 /// @nodoc
-class _$CategoriesCopyWithImpl<$Res, $Val extends Categories>
-    implements $CategoriesCopyWith<$Res> {
-  _$CategoriesCopyWithImpl(this._value, this._then);
+class _$QuestionsForQuizCopyWithImpl<$Res, $Val extends QuestionsForQuiz>
+    implements $QuestionsForQuizCopyWith<$Res> {
+  _$QuestionsForQuizCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -677,113 +558,125 @@ class _$CategoriesCopyWithImpl<$Res, $Val extends Categories>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categories = null,
+    Object? currentIndex = null,
+    Object? questions = null,
   }) {
     return _then(_value.copyWith(
-      categories: null == categories
-          ? _value.categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as Map<int, Category>,
+      currentIndex: null == currentIndex
+          ? _value.currentIndex
+          : currentIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      questions: null == questions
+          ? _value.questions
+          : questions // ignore: cast_nullable_to_non_nullable
+              as Iterable<Question>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$CategoriesImplCopyWith<$Res>
-    implements $CategoriesCopyWith<$Res> {
-  factory _$$CategoriesImplCopyWith(
-          _$CategoriesImpl value, $Res Function(_$CategoriesImpl) then) =
-      __$$CategoriesImplCopyWithImpl<$Res>;
+abstract class _$$QuestionsForQuizImplCopyWith<$Res>
+    implements $QuestionsForQuizCopyWith<$Res> {
+  factory _$$QuestionsForQuizImplCopyWith(_$QuestionsForQuizImpl value,
+          $Res Function(_$QuestionsForQuizImpl) then) =
+      __$$QuestionsForQuizImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<int, Category> categories});
+  $Res call({int currentIndex, Iterable<Question> questions});
 }
 
 /// @nodoc
-class __$$CategoriesImplCopyWithImpl<$Res>
-    extends _$CategoriesCopyWithImpl<$Res, _$CategoriesImpl>
-    implements _$$CategoriesImplCopyWith<$Res> {
-  __$$CategoriesImplCopyWithImpl(
-      _$CategoriesImpl _value, $Res Function(_$CategoriesImpl) _then)
+class __$$QuestionsForQuizImplCopyWithImpl<$Res>
+    extends _$QuestionsForQuizCopyWithImpl<$Res, _$QuestionsForQuizImpl>
+    implements _$$QuestionsForQuizImplCopyWith<$Res> {
+  __$$QuestionsForQuizImplCopyWithImpl(_$QuestionsForQuizImpl _value,
+      $Res Function(_$QuestionsForQuizImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categories = null,
+    Object? currentIndex = null,
+    Object? questions = null,
   }) {
-    return _then(_$CategoriesImpl(
-      categories: null == categories
-          ? _value._categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as Map<int, Category>,
+    return _then(_$QuestionsForQuizImpl(
+      currentIndex: null == currentIndex
+          ? _value.currentIndex
+          : currentIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      questions: null == questions
+          ? _value.questions
+          : questions // ignore: cast_nullable_to_non_nullable
+              as Iterable<Question>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$CategoriesImpl implements _Categories {
-  const _$CategoriesImpl(
-      {final Map<int, Category> categories = const <int, Category>{}})
-      : _categories = categories;
+class _$QuestionsForQuizImpl implements _QuestionsForQuiz {
+  const _$QuestionsForQuizImpl(
+      {this.currentIndex = 0, this.questions = const <Question>[]});
 
-  factory _$CategoriesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CategoriesImplFromJson(json);
+  factory _$QuestionsForQuizImpl.fromJson(Map<String, dynamic> json) =>
+      _$$QuestionsForQuizImplFromJson(json);
 
-  final Map<int, Category> _categories;
   @override
   @JsonKey()
-  Map<int, Category> get categories {
-    if (_categories is EqualUnmodifiableMapView) return _categories;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_categories);
-  }
+  final int currentIndex;
+  @override
+  @JsonKey()
+  final Iterable<Question> questions;
 
   @override
   String toString() {
-    return 'Categories(categories: $categories)';
+    return 'QuestionsForQuiz(currentIndex: $currentIndex, questions: $questions)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CategoriesImpl &&
-            const DeepCollectionEquality()
-                .equals(other._categories, _categories));
+            other is _$QuestionsForQuizImpl &&
+            (identical(other.currentIndex, currentIndex) ||
+                other.currentIndex == currentIndex) &&
+            const DeepCollectionEquality().equals(other.questions, questions));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_categories));
+  int get hashCode => Object.hash(runtimeType, currentIndex,
+      const DeepCollectionEquality().hash(questions));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CategoriesImplCopyWith<_$CategoriesImpl> get copyWith =>
-      __$$CategoriesImplCopyWithImpl<_$CategoriesImpl>(this, _$identity);
+  _$$QuestionsForQuizImplCopyWith<_$QuestionsForQuizImpl> get copyWith =>
+      __$$QuestionsForQuizImplCopyWithImpl<_$QuestionsForQuizImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CategoriesImplToJson(
+    return _$$QuestionsForQuizImplToJson(
       this,
     );
   }
 }
 
-abstract class _Categories implements Categories {
-  const factory _Categories({final Map<int, Category> categories}) =
-      _$CategoriesImpl;
+abstract class _QuestionsForQuiz implements QuestionsForQuiz {
+  const factory _QuestionsForQuiz(
+      {final int currentIndex,
+      final Iterable<Question> questions}) = _$QuestionsForQuizImpl;
 
-  factory _Categories.fromJson(Map<String, dynamic> json) =
-      _$CategoriesImpl.fromJson;
+  factory _QuestionsForQuiz.fromJson(Map<String, dynamic> json) =
+      _$QuestionsForQuizImpl.fromJson;
 
   @override
-  Map<int, Category> get categories;
+  int get currentIndex;
+  @override
+  Iterable<Question> get questions;
   @override
   @JsonKey(ignore: true)
-  _$$CategoriesImplCopyWith<_$CategoriesImpl> get copyWith =>
+  _$$QuestionsForQuizImplCopyWith<_$QuestionsForQuizImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'states.dart';
+part of 'question.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -18,7 +18,9 @@ _$QuestionImpl _$$QuestionImplFromJson(Map<String, dynamic> json) =>
       c: json['c'] as String? ?? '',
       d: json['d'] as String? ?? '',
       answer: json['answer'] as String? ?? '',
-      explaination: json['explaination'] as String? ?? '',
+      explanation: json['explanation'] as String? ?? '',
+      userAnswer: json['userAnswer'] as String? ?? '',
+      isSubmitted: json['isSubmitted'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$QuestionImplToJson(_$QuestionImpl instance) =>
@@ -31,46 +33,33 @@ Map<String, dynamic> _$$QuestionImplToJson(_$QuestionImpl instance) =>
       'c': instance.c,
       'd': instance.d,
       'answer': instance.answer,
-      'explaination': instance.explaination,
-    };
-
-_$QuestionsImpl _$$QuestionsImplFromJson(Map<String, dynamic> json) =>
-    _$QuestionsImpl(
-      questions: (json['questions'] as Map<String, dynamic>?)?.map(
-            (k, e) => MapEntry(
-                int.parse(k), Question.fromJson(e as Map<String, dynamic>)),
-          ) ??
-          const <int, Question>{},
-    );
-
-Map<String, dynamic> _$$QuestionsImplToJson(_$QuestionsImpl instance) =>
-    <String, dynamic>{
-      'questions': instance.questions.map((k, e) => MapEntry(k.toString(), e)),
+      'explanation': instance.explanation,
+      'userAnswer': instance.userAnswer,
+      'isSubmitted': instance.isSubmitted,
     };
 
 _$CategoryImpl _$$CategoryImplFromJson(Map<String, dynamic> json) =>
     _$CategoryImpl(
       name: json['name'] as String? ?? '',
-      index: (json['index'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$$CategoryImplToJson(_$CategoryImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'index': instance.index,
     };
 
-_$CategoriesImpl _$$CategoriesImplFromJson(Map<String, dynamic> json) =>
-    _$CategoriesImpl(
-      categories: (json['categories'] as Map<String, dynamic>?)?.map(
-            (k, e) => MapEntry(
-                int.parse(k), Category.fromJson(e as Map<String, dynamic>)),
-          ) ??
-          const <int, Category>{},
+_$QuestionsForQuizImpl _$$QuestionsForQuizImplFromJson(
+        Map<String, dynamic> json) =>
+    _$QuestionsForQuizImpl(
+      currentIndex: (json['currentIndex'] as num?)?.toInt() ?? 0,
+      questions: (json['questions'] as List<dynamic>?)
+              ?.map((e) => Question.fromJson(e as Map<String, dynamic>)) ??
+          const <Question>[],
     );
 
-Map<String, dynamic> _$$CategoriesImplToJson(_$CategoriesImpl instance) =>
+Map<String, dynamic> _$$QuestionsForQuizImplToJson(
+        _$QuestionsForQuizImpl instance) =>
     <String, dynamic>{
-      'categories':
-          instance.categories.map((k, e) => MapEntry(k.toString(), e)),
+      'currentIndex': instance.currentIndex,
+      'questions': instance.questions.toList(),
     };
