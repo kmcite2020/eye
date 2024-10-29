@@ -1,6 +1,5 @@
-import 'package:eye/features/quiz/question.dart';
+import 'package:eye/quiz/question.dart';
 import 'package:eye/main.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 part 'categories.freezed.dart';
 part 'categories.g.dart';
 
@@ -12,9 +11,9 @@ class CategoriesBloc {
   );
   Categories categories([Categories? value]) {
     if (value != null) {
-      categoriesRM.set(value);
+      categoriesRM.state = value;
     }
-    return categoriesRM.get;
+    return categoriesRM.state;
   }
 
   Iterable<Category> iterableOfCategories([Iterable<Category>? value]) {

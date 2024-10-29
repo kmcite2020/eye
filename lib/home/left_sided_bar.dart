@@ -1,4 +1,3 @@
-import 'package:eye/features/home/app.dart';
 import 'package:eye/main.dart';
 
 import 'routes_targets.dart';
@@ -11,22 +10,22 @@ class LeftSidedBar extends UI {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        switch (applicationBloc.isSignedIn) {
+        switch (currentUser.isSignedIn) {
           true => IconButton.outlined(
-              onPressed: switch (applicationBloc.isSignedIn) {
+              onPressed: switch (currentUser.isSignedIn) {
                 true => null,
                 false => null,
               },
               icon: Icon(
                 Icons.done,
-                color: Colors.green,
+                color: Colors.green.shade400,
               ),
             ),
           false => IconButton.outlined(
               onPressed: null,
               icon: Icon(
                 Icons.close,
-                color: Colors.red,
+                color: Colors.red.shade400,
               ),
             ),
         }
@@ -34,27 +33,26 @@ class LeftSidedBar extends UI {
         RoutesTargets(),
         IconButton.outlined(
           icon: Icon(
-            switch (themeModeRM.get) {
-              ThemeMode.light => Icons.toggle_off,
-              ThemeMode.dark => Icons.toggle_on,
-              ThemeMode.system => Icons.color_lens,
+            switch (themeMode()) {
+              true => Icons.toggle_on,
+              false => Icons.toggle_off,
             },
+            color: Colors.blue.shade400,
           ),
           onPressed: () => switch (themeMode()) {
-            ThemeMode.light => themeMode(ThemeMode.dark),
-            ThemeMode.dark => themeMode(ThemeMode.system),
-            ThemeMode.system => themeMode(ThemeMode.light),
+            false => themeMode(true),
+            true => themeMode(false),
           },
         ).pad(all: 4),
         IconButton(
-          splashColor: Colors.red,
-          onPressed: switch (applicationBloc.isSignedIn) {
-            true => applicationBloc.signOut,
+          splashColor: Colors.red.shade300,
+          onPressed: switch (currentUser.isSignedIn) {
+            true => logOut,
             false => null,
           },
           icon: Icon(
             Icons.logout,
-            color: Colors.red,
+            color: Colors.red.shade400,
           ),
         ).pad(all: 4),
       ],

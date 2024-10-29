@@ -20,10 +20,14 @@ Users _$UsersFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Users {
-  List<User> get users => throw _privateConstructorUsedError;
+  Map<String, User> get users => throw _privateConstructorUsedError;
 
+  /// Serializes this Users to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Users
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UsersCopyWith<Users> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -32,7 +36,7 @@ abstract class $UsersCopyWith<$Res> {
   factory $UsersCopyWith(Users value, $Res Function(Users) then) =
       _$UsersCopyWithImpl<$Res, Users>;
   @useResult
-  $Res call({List<User> users});
+  $Res call({Map<String, User> users});
 }
 
 /// @nodoc
@@ -45,6 +49,8 @@ class _$UsersCopyWithImpl<$Res, $Val extends Users>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Users
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -54,7 +60,7 @@ class _$UsersCopyWithImpl<$Res, $Val extends Users>
       users: null == users
           ? _value.users
           : users // ignore: cast_nullable_to_non_nullable
-              as List<User>,
+              as Map<String, User>,
     ) as $Val);
   }
 }
@@ -66,7 +72,7 @@ abstract class _$$UsersImplCopyWith<$Res> implements $UsersCopyWith<$Res> {
       __$$UsersImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<User> users});
+  $Res call({Map<String, User> users});
 }
 
 /// @nodoc
@@ -77,6 +83,8 @@ class __$$UsersImplCopyWithImpl<$Res>
       _$UsersImpl _value, $Res Function(_$UsersImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Users
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,31 +94,40 @@ class __$$UsersImplCopyWithImpl<$Res>
       users: null == users
           ? _value._users
           : users // ignore: cast_nullable_to_non_nullable
-              as List<User>,
+              as Map<String, User>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$UsersImpl implements _Users {
-  const _$UsersImpl({final List<User> users = const <User>[]}) : _users = users;
+class _$UsersImpl with DiagnosticableTreeMixin implements _Users {
+  const _$UsersImpl({final Map<String, User> users = const <String, User>{}})
+      : _users = users;
 
   factory _$UsersImpl.fromJson(Map<String, dynamic> json) =>
       _$$UsersImplFromJson(json);
 
-  final List<User> _users;
+  final Map<String, User> _users;
   @override
   @JsonKey()
-  List<User> get users {
-    if (_users is EqualUnmodifiableListView) return _users;
+  Map<String, User> get users {
+    if (_users is EqualUnmodifiableMapView) return _users;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_users);
+    return EqualUnmodifiableMapView(_users);
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Users(users: $users)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Users'))
+      ..add(DiagnosticsProperty('users', users));
   }
 
   @override
@@ -121,12 +138,14 @@ class _$UsersImpl implements _Users {
             const DeepCollectionEquality().equals(other._users, _users));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_users));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Users
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UsersImplCopyWith<_$UsersImpl> get copyWith =>
@@ -141,14 +160,17 @@ class _$UsersImpl implements _Users {
 }
 
 abstract class _Users implements Users {
-  const factory _Users({final List<User> users}) = _$UsersImpl;
+  const factory _Users({final Map<String, User> users}) = _$UsersImpl;
 
   factory _Users.fromJson(Map<String, dynamic> json) = _$UsersImpl.fromJson;
 
   @override
-  List<User> get users;
+  Map<String, User> get users;
+
+  /// Create a copy of Users
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UsersImplCopyWith<_$UsersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -162,8 +184,12 @@ mixin _$User {
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
 
+  /// Serializes this User to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -185,6 +211,8 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -221,6 +249,8 @@ class __$$UserImplCopyWithImpl<$Res>
   __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -242,7 +272,7 @@ class __$$UserImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UserImpl extends _User {
+class _$UserImpl extends _User with DiagnosticableTreeMixin {
   const _$UserImpl({this.email = '', this.password = ''}) : super._();
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
@@ -256,8 +286,17 @@ class _$UserImpl extends _User {
   final String password;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'User(email: $email, password: $password)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'User'))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('password', password));
   }
 
   @override
@@ -270,11 +309,13 @@ class _$UserImpl extends _User {
                 other.password == password));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, email, password);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>
@@ -298,8 +339,11 @@ abstract class _User extends User {
   String get email;
   @override
   String get password;
+
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:eye/features/quiz/data.dart';
+import 'package:eye/quiz/data.dart';
 import 'package:eye/main.dart';
 
 import 'countdown_bar.dart';
@@ -28,11 +28,11 @@ class QuestionBody extends UI {
   Widget build(BuildContext context) {
     return Expanded(
       child: PageView.builder(
-        onPageChanged: questionIndexRM.set,
-        itemCount: questionsRM.get.questions.length,
+        onPageChanged: (index) => questionIndexRM.state = index,
+        itemCount: questionsRM.state.questions.length,
         controller: controller,
         itemBuilder: (context, index) {
-          final Question question = questionsRM.get.questions.elementAt(index);
+          final Question question = questionsRM.state.questions.elementAt(index);
           return ListTile(
             title: question.statement.text(),
             subtitle: Column(
@@ -85,11 +85,9 @@ class QuestionBody extends UI {
                           title: option.text(),
                           groupValue: question.userAnswer,
                           onChanged: (value) {
-                            questionsRM.set(
-                              questionsRM.get.copyWith(
-                                questions: questionsRM.get.questions.update(
-                                  question.copyWith(userAnswer: value!),
-                                ),
+                            questionsRM.state = questionsRM.state.copyWith(
+                              questions: questionsRM.state.questions.update(
+                                question.copyWith(userAnswer: value!),
                               ),
                             );
                           },
@@ -102,11 +100,9 @@ class QuestionBody extends UI {
                   onPressed: question.isSubmitted
                       ? null
                       : () {
-                          questionsRM.set(
-                            questionsRM.get.copyWith(
-                              questions: questionsRM.get.questions.update(
-                                question.copyWith(isSubmitted: true),
-                              ),
+                          questionsRM.state = questionsRM.state.copyWith(
+                            questions: questionsRM.state.questions.update(
+                              question.copyWith(isSubmitted: true),
                             ),
                           );
                         },
@@ -139,7 +135,7 @@ class QuizProgressBar extends UI {
           LayoutBuilder(
             builder: (context, constraints) {
               return Container(
-                width: questionIndexRM.get * constraints.maxWidth / 10,
+                width: questionIndexRM.state * constraints.maxWidth / 10,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: AlwaysStoppedAnimation(Colors.red).value,

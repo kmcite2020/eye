@@ -22,8 +22,12 @@ Sessions _$SessionsFromJson(Map<String, dynamic> json) {
 mixin _$Sessions {
   Iterable<Session> get sessions => throw _privateConstructorUsedError;
 
+  /// Serializes this Sessions to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Sessions
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SessionsCopyWith<Sessions> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -46,6 +50,8 @@ class _$SessionsCopyWithImpl<$Res, $Val extends Sessions>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Sessions
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -79,6 +85,8 @@ class __$$SessionsImplCopyWithImpl<$Res>
       _$SessionsImpl _value, $Res Function(_$SessionsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Sessions
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -95,7 +103,7 @@ class __$$SessionsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SessionsImpl implements _Sessions {
+class _$SessionsImpl with DiagnosticableTreeMixin implements _Sessions {
   const _$SessionsImpl({this.sessions = const <Session>[]});
 
   factory _$SessionsImpl.fromJson(Map<String, dynamic> json) =>
@@ -106,8 +114,16 @@ class _$SessionsImpl implements _Sessions {
   final Iterable<Session> sessions;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Sessions(sessions: $sessions)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Sessions'))
+      ..add(DiagnosticsProperty('sessions', sessions));
   }
 
   @override
@@ -118,12 +134,14 @@ class _$SessionsImpl implements _Sessions {
             const DeepCollectionEquality().equals(other.sessions, sessions));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(sessions));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Sessions
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SessionsImplCopyWith<_$SessionsImpl> get copyWith =>
@@ -145,8 +163,11 @@ abstract class _Sessions implements Sessions {
 
   @override
   Iterable<Session> get sessions;
+
+  /// Create a copy of Sessions
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SessionsImplCopyWith<_$SessionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -165,8 +186,12 @@ mixin _$Session {
   String get progress => throw _privateConstructorUsedError;
   String get result => throw _privateConstructorUsedError;
 
+  /// Serializes this Session to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Session
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SessionCopyWith<Session> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -194,6 +219,8 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Session
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -257,6 +284,8 @@ class __$$SessionImplCopyWithImpl<$Res>
       _$SessionImpl _value, $Res Function(_$SessionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Session
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -298,7 +327,7 @@ class __$$SessionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SessionImpl implements _Session {
+class _$SessionImpl with DiagnosticableTreeMixin implements _Session {
   const _$SessionImpl(
       {this.id = '',
       this.sessionMode = SessionMode.study,
@@ -330,8 +359,21 @@ class _$SessionImpl implements _Session {
   final String result;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Session(id: $id, sessionMode: $sessionMode, questions: $questions, createdOn: $createdOn, progress: $progress, result: $result)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Session'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('sessionMode', sessionMode))
+      ..add(DiagnosticsProperty('questions', questions))
+      ..add(DiagnosticsProperty('createdOn', createdOn))
+      ..add(DiagnosticsProperty('progress', progress))
+      ..add(DiagnosticsProperty('result', result));
   }
 
   @override
@@ -350,7 +392,7 @@ class _$SessionImpl implements _Session {
             (identical(other.result, result) || other.result == result));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -361,7 +403,9 @@ class _$SessionImpl implements _Session {
       progress,
       result);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Session
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SessionImplCopyWith<_$SessionImpl> get copyWith =>
@@ -393,13 +437,16 @@ abstract class _Session implements Session {
   @override
   Iterable<Question> get questions;
   @override
-  DateTime get createdOn;
-  @override // @Default('') final String timer,
+  DateTime get createdOn; // @Default('') final String timer,
+  @override
   String get progress;
   @override
   String get result;
+
+  /// Create a copy of Session
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SessionImplCopyWith<_$SessionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

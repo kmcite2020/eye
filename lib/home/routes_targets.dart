@@ -1,12 +1,10 @@
-import 'package:eye/features/home/app.dart';
-import 'package:eye/features/navigator.dart';
 import 'package:eye/main.dart';
 
 class RoutesTargets extends UI {
   const RoutesTargets({super.key});
 
   @override
-  Widget build(BuildContext context) => switch (applicationBloc.isSignedIn) {
+  Widget build(BuildContext context) => switch (currentUser.isSignedIn) {
         true => authorizedTargets(context),
         false => unAuthorizedTargets(context),
       };
@@ -16,7 +14,7 @@ class RoutesTargets extends UI {
           Routes.home,
           Routes.quiz,
           Routes.profile,
-          Routes.sessions,
+          Routes.session,
         ].map(
           (route) {
             return elevatedButton(route).pad(all: 4);
@@ -44,7 +42,7 @@ class RoutesTargets extends UI {
 
   Widget unAuthorizedTargets(BuildContext context) {
     return Column(
-      children: [Routes.login, Routes.register].map(
+      children: [Routes.auth].map(
         (route) {
           return elevatedButton(route).pad(all: 4);
         },

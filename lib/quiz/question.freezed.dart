@@ -32,8 +32,12 @@ mixin _$Question {
   String get userAnswer => throw _privateConstructorUsedError;
   bool get isSubmitted => throw _privateConstructorUsedError;
 
+  /// Serializes this Question to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Question
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QuestionCopyWith<Question> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -69,6 +73,8 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Question
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,6 +138,8 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
     ) as $Val);
   }
 
+  /// Create a copy of Question
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CategoryCopyWith<$Res> get category {
@@ -174,6 +182,8 @@ class __$$QuestionImplCopyWithImpl<$Res>
       _$QuestionImpl _value, $Res Function(_$QuestionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Question
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -320,12 +330,14 @@ class _$QuestionImpl extends _Question {
                 other.isSubmitted == isSubmitted));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, category, statement, a, b, c,
       d, answer, explanation, userAnswer, isSubmitted);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Question
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$QuestionImplCopyWith<_$QuestionImpl> get copyWith =>
@@ -379,8 +391,11 @@ abstract class _Question extends Question {
   String get userAnswer;
   @override
   bool get isSubmitted;
+
+  /// Create a copy of Question
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$QuestionImplCopyWith<_$QuestionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -393,8 +408,12 @@ Category _$CategoryFromJson(Map<String, dynamic> json) {
 mixin _$Category {
   String get name => throw _privateConstructorUsedError;
 
+  /// Serializes this Category to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Category
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CategoryCopyWith<Category> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -417,6 +436,8 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Category
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -450,6 +471,8 @@ class __$$CategoryImplCopyWithImpl<$Res>
       _$CategoryImpl _value, $Res Function(_$CategoryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Category
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -489,11 +512,13 @@ class _$CategoryImpl implements _Category {
             (identical(other.name, name) || other.name == name));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Category
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CategoryImplCopyWith<_$CategoryImpl> get copyWith =>
@@ -515,8 +540,11 @@ abstract class _Category implements Category {
 
   @override
   String get name;
+
+  /// Create a copy of Category
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CategoryImplCopyWith<_$CategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -530,8 +558,12 @@ mixin _$QuestionsForQuiz {
   int get currentIndex => throw _privateConstructorUsedError;
   Iterable<Question> get questions => throw _privateConstructorUsedError;
 
+  /// Serializes this QuestionsForQuiz to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of QuestionsForQuiz
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QuestionsForQuizCopyWith<QuestionsForQuiz> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -555,6 +587,8 @@ class _$QuestionsForQuizCopyWithImpl<$Res, $Val extends QuestionsForQuiz>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of QuestionsForQuiz
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -593,6 +627,8 @@ class __$$QuestionsForQuizImplCopyWithImpl<$Res>
       $Res Function(_$QuestionsForQuizImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QuestionsForQuiz
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -643,12 +679,14 @@ class _$QuestionsForQuizImpl implements _QuestionsForQuiz {
             const DeepCollectionEquality().equals(other.questions, questions));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, currentIndex,
       const DeepCollectionEquality().hash(questions));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuestionsForQuiz
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$QuestionsForQuizImplCopyWith<_$QuestionsForQuizImpl> get copyWith =>
@@ -675,8 +713,11 @@ abstract class _QuestionsForQuiz implements QuestionsForQuiz {
   int get currentIndex;
   @override
   Iterable<Question> get questions;
+
+  /// Create a copy of QuestionsForQuiz
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$QuestionsForQuizImplCopyWith<_$QuestionsForQuizImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

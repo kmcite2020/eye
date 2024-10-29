@@ -1,11 +1,7 @@
-import 'dart:convert';
+import 'package:eye/quiz/question.dart';
+import 'package:eye/sessions/session_tile.dart';
 
-import 'package:eye/features/navigator.dart';
-import 'package:eye/features/quiz/question.dart';
-import 'package:eye/features/sessions/session_tile.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../../main.dart';
+import '../main.dart';
 
 part 'sessions_page.freezed.dart';
 part 'sessions_page.g.dart';
@@ -35,9 +31,9 @@ final sessionsBloc = SessionsBloc();
 class SessionsBloc {
   Sessions sessions([Sessions? value]) {
     if (value != null) {
-      sessionsRM.set(value);
+      sessionsRM.state = value;
     }
-    return sessionsRM.get;
+    return sessionsRM.state;
   }
 
   Iterable<Session> iterableOfSessions([Iterable<Session>? value]) {
@@ -51,11 +47,7 @@ class SessionsBloc {
   Session sessionAt(int index) => iterableOfSessions().elementAt(index);
   final sessionsRM = RM.inject(
     () => Sessions(),
-    persist: () => PersistState(
-      key: 'sessions',
-      fromJson: (json) => Sessions.fromJson(jsonDecode(json)),
-      toJson: (s) => jsonEncode(s.toJson()),
-    ),
+    persist: () => persisted('sessions', Sessions.fromJson),
   );
 
   void addSession(Session value) {

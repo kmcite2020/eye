@@ -22,8 +22,12 @@ Categories _$CategoriesFromJson(Map<String, dynamic> json) {
 mixin _$Categories {
   Iterable<Category> get categories => throw _privateConstructorUsedError;
 
+  /// Serializes this Categories to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Categories
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CategoriesCopyWith<Categories> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$CategoriesCopyWithImpl<$Res, $Val extends Categories>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Categories
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$CategoriesImplCopyWithImpl<$Res>
       _$CategoriesImpl _value, $Res Function(_$CategoriesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Categories
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -96,7 +104,7 @@ class __$$CategoriesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CategoriesImpl implements _Categories {
+class _$CategoriesImpl with DiagnosticableTreeMixin implements _Categories {
   const _$CategoriesImpl({this.categories = const <Category>[]});
 
   factory _$CategoriesImpl.fromJson(Map<String, dynamic> json) =>
@@ -107,8 +115,16 @@ class _$CategoriesImpl implements _Categories {
   final Iterable<Category> categories;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Categories(categories: $categories)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Categories'))
+      ..add(DiagnosticsProperty('categories', categories));
   }
 
   @override
@@ -120,12 +136,14 @@ class _$CategoriesImpl implements _Categories {
                 .equals(other.categories, categories));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(categories));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Categories
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CategoriesImplCopyWith<_$CategoriesImpl> get copyWith =>
@@ -148,8 +166,11 @@ abstract class _Categories implements Categories {
 
   @override
   Iterable<Category> get categories;
+
+  /// Create a copy of Categories
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CategoriesImplCopyWith<_$CategoriesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
